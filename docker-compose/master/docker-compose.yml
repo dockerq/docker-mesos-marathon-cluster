@@ -1,5 +1,5 @@
 mesos_master:
-    image: daocloud.io/adolphlwq/docker-mesos:blogdemo-9abd5bf
+    image: daocloud.io/adolphlwq/docker-mesos:blogdemo-c2f1d67
     net: "host"
     privileged: true
     container_name: mesos_master
@@ -7,7 +7,7 @@ mesos_master:
 #    command: mesos-master &
 
 mesos_slave:
-    image: daocloud.io/adolphlwq/mesos_slave:blogdemo-642981e
+    image: daocloud.io/adolphlwq/mesos_slave:blogdemo-2221252
     net: "host"
     privileged: true
     volumes:
@@ -19,7 +19,7 @@ mesos_slave:
 #    command: mesos-slave &
 
 marathom:
-    image: daocloud.io/adolphlwq/docker-marathon:blogdemo-6508bcf
+    image: daocloud.io/adolphlwq/docker-marathon:blogdemo-e91b4e1
     net: "host"
     privileged: true
     container_name: marathon
@@ -27,8 +27,7 @@ marathom:
 #    command: marathon &
 
 zookeeper:
-    image: daocloud.io/adolphlwq/docker-zookeeper:blogdemo-a0f7ae2
+    image: daocloud.io/adolphlwq/docker-zookeeper:blogdemo-e9addc6
     net: host
     privileged: true
     container_name: zookeeper
-#    command: /usr/local/zookeeper/bin/zkServer.sh start
