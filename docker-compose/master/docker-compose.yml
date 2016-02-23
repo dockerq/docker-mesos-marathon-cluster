@@ -1,0 +1,34 @@
+mesos_master:
+    image: daocloud.io/adolphlwq/docker-mesos:blogdemo-9abd5bf
+    net: "host"
+    privileged: true
+    container_name: mesos_master
+    env_file: mesos_master_env
+#    command: mesos-master &
+
+mesos_slave:
+    image: daocloud.io/adolphlwq/mesos_slave:blogdemo-642981e
+    net: "host"
+    privileged: true
+    volumes:
+      - /var/mesos:/var/mesos
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /sys/fs/cgroup:/sys/fs/cgroup
+    container_name: mesos_slave
+    env_file: mesos_slave_env
+#    command: mesos-slave &
+
+marathom:
+    image: daocloud.io/adolphlwq/docker-marathon:blogdemo-6508bcf
+    net: "host"
+    privileged: true
+    container_name: marathon
+    env_file: marathon_env
+#    command: marathon &
+
+zookeeper:
+    image: daocloud.io/adolphlwq/docker-zookeeper:blogdemo-a0f7ae2
+    net: host
+    privileged: true
+    container_name: zookeeper
+#    command: /usr/local/zookeeper/bin/zkServer.sh start
