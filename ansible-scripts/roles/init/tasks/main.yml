@@ -1,0 +1,39 @@
+---
+  - name: add docker key
+    #sudo: yes
+    apt_key: keyserver=hkp://p80.pool.sks-keyservers.net:80 id=58118E89F3A912897C070ADBF76221572C52609D
+
+  - name: add docker repo
+    #sudo: yes
+    apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-trusty main" state=present
+
+  - name: install dependency for docker
+    #sudo: yes
+    apt: name=apt-transport-https state=present update_cache=yes
+
+  - name: install dependency for docker
+    #sudo: yes
+    apt: name=ca-certificates state=present
+
+  - name: install docker 1.10.0
+    #sudo: yes
+    apt: name=docker-engine=1.10.1-0~trusty update_cache=yes
+
+  - name: install python-setuptools
+    #sudo: yes
+    apt: name=python-setuptools state=present
+
+  - name: install build-essential
+    #sudo: yes
+    apt: name=build-essential state=present
+
+  - name: install python-dev
+    #sudo: yes
+    apt: name=build-essential state=present
+
+  - name: install pip using setuptools
+    shell: easy_install pip
+
+  - name: install docker-compose
+    #sudo: yes
+    shell: pip install docker-compose

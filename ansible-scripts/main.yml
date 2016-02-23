@@ -1,0 +1,18 @@
+---
+   - name: run init nodes
+     sudo: yes
+     hosts: base
+     roles:
+       - { role: init }
+
+   - name: run images on master node
+     sudo: yes
+     hosts: master
+     roles:
+       - { role: master }
+
+  - name: run mesos mesos slave on slaves node
+    sudo: yes
+    hosts: slaves
+    roles:
+      - { role: slaves }
