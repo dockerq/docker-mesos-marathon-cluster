@@ -2,6 +2,8 @@ mesos_master:
     image: daocloud.io/adolphlwq/docker-mesos:blogdemo-c2f1d67
     net: "host"
     privileged: true
+    volumes:
+      - /var/mesos:/var/mesos
     container_name: mesos_master
     env_file: mesos_master_env
 #    command: mesos-master &
