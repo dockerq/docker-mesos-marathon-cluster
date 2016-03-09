@@ -143,5 +143,7 @@ sudo ansible-playbook -i hosts main.yml
 - [docker mesos slave image](https://github.com/DHOPL/mesos_slave)
 - [docker zookeeper image](https://github.com/DHOPL/docker-zookeeper)
 
-
-alexwhen/docker-2048
+## 改进
+1. 设置mesos参数，是的运行在mesos上的容器挂掉之后在设置的时间内删除挂掉的容器
+2. 研究marathon的`health care`机制，看看为什么运行的容器拿不到健康状态
+3. 添加对每个虚拟机的监控功能
