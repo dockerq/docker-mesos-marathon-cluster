@@ -2,21 +2,11 @@ mesos_master:
     image: daocloud.io/adolphlwq/docker-mesos:blogdemo-c2f1d67
     net: "host"
     privileged: true
+    volumes:
+      - /var/mesos:/var/mesos
     container_name: mesos_master
     env_file: mesos_master_env
 #    command: mesos-master &
-
-mesos_slave:
-    image: daocloud.io/adolphlwq/mesos_slave:blogdemo-2221252
-    net: "host"
-    privileged: true
-    volumes:
-      - /var/mesos:/var/mesos
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /sys/fs/cgroup:/sys/fs/cgroup
-    container_name: mesos_slave
-    env_file: mesos_slave_env
-#    command: mesos-slave &
 
 marathom:
     image: daocloud.io/adolphlwq/docker-marathon:blogdemo-e91b4e1
