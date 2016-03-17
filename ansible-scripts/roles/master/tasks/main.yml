@@ -1,15 +1,12 @@
 ---
   - name: mkdir deploy dir
-    file: path={{ deploydir }} state=directory
+    file: path={{ deploydir }} state=directory mode=755
 
   - name: clone docker file
     git: repo={{ docker_compose_repo }} dest={{ deploydir }}
 
   - name: change docker images env for master
     script: config.sh {{ deploydir }}
-
-  - name: mkdir /var/mesos for mesos container
-    file: path=/var/mesos state=directory mode=755
 
   - name: run docker master images
     shell: cd {{ deploydir }}/docker-compose/master && docker-compose up -d

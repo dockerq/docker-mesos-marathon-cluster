@@ -2,21 +2,11 @@ mesos_master:
     image: daocloud.io/adolphlwq/docker-mesos:blogdemo-c2f1d67
     net: "host"
     privileged: true
+    volumes:
+      - /var/mesos:/var/mesos
     container_name: mesos_master
     env_file: mesos_master_env
 #    command: mesos-master &
-
-mesos_slave:
-    image: daocloud.io/adolphlwq/mesos_slave:blogdemo-2221252
-    net: "host"
-    privileged: true
-    volumes:
-      - /var/mesos:/var/mesos
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /sys/fs/cgroup:/sys/fs/cgroup
-    container_name: mesos_slave
-    env_file: mesos_slave_env
-#    command: mesos-slave &
 
 marathom:
     image: daocloud.io/adolphlwq/docker-marathon:blogdemo-e91b4e1
@@ -27,7 +17,20 @@ marathom:
 #    command: marathon &
 
 zookeeper:
-    image: daocloud.io/adolphlwq/docker-zookeeper:blogdemo-e9addc6
+    image: daocloud.io/adolphlwq/docker-zookeeper:master-4e8c502
     net: host
     privileged: true
     container_name: zookeeper
+
+dnsserver:
+    image: linkerrepository/linker_mesos_dns
+    net: "host"
+    privileged: true
+    volumes:
+        - ./config:/linker/config
+    container_name: mesosdns
+
+linker_router:
+    image: linkerrepository/linker_router
+    net: host
+    container_name: linker_router

@@ -1,3 +1,6 @@
+#常见错误
+- 每台机器后要配置`/etc/hosts`,加上`ip hostname`
+
 # 原理图
 - 基础设施层
 
@@ -144,6 +147,6 @@ sudo ansible-playbook -i hosts main.yml
 - [docker zookeeper image](https://github.com/DHOPL/docker-zookeeper)
 
 ## 改进
-1. 设置mesos参数，是的运行在mesos上的容器挂掉之后在设置的时间内删除挂掉的容器
+1. 设置mesos参数，使得运行在mesos上的容器挂掉之后在设置的时间内删除挂掉的容器
 2. 研究marathon的`health care`机制，看看为什么运行的容器拿不到健康状态
 3. 添加对每个虚拟机的监控功能
