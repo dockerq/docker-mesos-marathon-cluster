@@ -1,0 +1,3 @@
+---
+  - name: stop master container
+    script: clean.sh {{ deploydir }}

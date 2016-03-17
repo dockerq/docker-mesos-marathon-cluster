@@ -17,7 +17,20 @@ marathom:
 #    command: marathon &
 
 zookeeper:
-    image: daocloud.io/adolphlwq/docker-zookeeper:blogdemo-e9addc6
+    image: daocloud.io/adolphlwq/docker-zookeeper:master-4e8c502
     net: host
     privileged: true
     container_name: zookeeper
+
+dnsserver:
+    image: linkerrepository/linker_mesos_dns
+    net: "host"
+    privileged: true
+    volumes:
+        - ./config:/linker/config
+    container_name: mesosdns
+
+linker_router:
+    image: linkerrepository/linker_router
+    net: host
+    container_name: linker_router
