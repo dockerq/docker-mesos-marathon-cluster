@@ -1,9 +1,9 @@
 mesos_slave:
-    image: daocloud.io/adolphlwq/mesos_slave:blogdemo-2221252
+    image: daocloud.io/adolphlwq/mesos_slave:master-1846d8b
     net: "host"
     privileged: true
     volumes:
-      - /var/mesos:/var/mesos
+      - /var/mesos_slave:/var/mesos_slave
       - /var/run/docker.sock:/var/run/docker.sock
       - /sys/fs/cgroup:/sys/fs/cgroup
     container_name: mesos_slave
