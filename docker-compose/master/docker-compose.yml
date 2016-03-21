@@ -9,7 +9,7 @@ mesos_master:
 #    command: mesos-master &
 
 marathom:
-    image: daocloud.io/adolphlwq/docker-marathon:blogdemo-e91b4e1
+    image: daocloud.io/adolphlwq/docker-marathon:master-343815a
     net: "host"
     privileged: true
     container_name: marathon
@@ -17,7 +17,7 @@ marathom:
 #    command: marathon &
 
 zookeeper:
-    image: daocloud.io/adolphlwq/docker-zookeeper:master-4e8c502
+    image: daocloud.io/adolphlwq/docker-zookeeper:master-81e69c8
     net: host
     privileged: true
     container_name: zookeeper
@@ -33,4 +33,5 @@ dnsserver:
 linker_router:
     image: linkerrepository/linker_router
     net: host
+    privileged: true
     container_name: linker_router
