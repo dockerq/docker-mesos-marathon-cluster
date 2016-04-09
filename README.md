@@ -150,4 +150,4 @@ sudo ansible-playbook -i hosts main.yml
 1. 设置mesos参数，使得运行在mesos上的容器挂掉之后在设置的时间内删除挂掉的容器
 2. 研究marathon的`health care`机制，看看为什么运行的容器拿不到健康状态
 3. 添加对每个虚拟机的监控功能
-4. 基础镜像是`ubuntu:14.04`，镜像体积太大了，要以alpine作为基础镜像重新构建镜像
+4. 基础镜像是`ubuntu:14.04`，镜像体积太大了，对于想zookeeper这样的简单镜像，可以改为使用alpine作为基础镜像重新构建镜像
