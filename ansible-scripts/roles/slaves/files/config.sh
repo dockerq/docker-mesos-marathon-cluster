@@ -8,4 +8,4 @@ hostname=`hostname`
 #config mesos slave env
 sed -i s/MESOS_IP=.*/MESOS_IP=${ip}/ ${work_dir}/docker-compose/slave/mesos_slave_env
 sed -i s/MESOS_HOSTNAME=.*/MESOS_HOSTNAME=${ip}/ ${work_dir}/docker-compose/slave/mesos_slave_env
-sed -i s@MESOS_MASTER=.*@MESOS_MASTER=zk://${master_ip}@ ${work_dir}/docker-compose/slave/mesos_slave_env
+sed -i s@MESOS_MASTER=.*@MESOS_MASTER=zk://${master_ip}:2181/mesos@ ${work_dir}/docker-compose/slave/mesos_slave_env
