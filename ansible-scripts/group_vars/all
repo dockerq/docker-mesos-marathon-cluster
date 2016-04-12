@@ -7,3 +7,5 @@ deploydir: /home/vagrant/deploy
 docker_compose_repo: https://github.com/DHOPL/docker-mesos-marathon-cluster.git
 master_ip: 192.168.10.130
 slave_nfsdir: /nfs/hadoop
+master_data: /var/mesos
+slave_data: /var/mesos_slave
