@@ -1,6 +1,7 @@
-MESOS_IP=192.168.10.142
+MESOS_IP=192.168.10.12
+MESOS_ADVERTISE_IP=
 MESOS_HOSTNAME=bigdata
-MESOS_MASTER=zk://192.168.10.142:2181/mesos
+MESOS_MASTER=zk://192.168.10.2:2181/mesos
 MESOS_LOG_DIR=/var/mesos_slave/log
 MESOS_WORK_DIR=/var/mesos_slave/work
 MESOS_STORE_DIR=/var/mesos_slave/store/docker
