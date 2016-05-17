@@ -1,5 +1,5 @@
 mesos_slave:
-    image: daocloud.io/adolphlwq/mesos_slave:master-bd2dc6c
+    image: daocloud.io/adolphlwq/docker-mesos-slave:gic-8900d16
     net: "host"
     privileged: true
     volumes:
