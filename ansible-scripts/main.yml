@@ -1,17 +1,17 @@
 ---
-   - name: run init nodes
-     sudo: yes
-     hosts: base
-     roles:
-       - { role: init }
+  # - name: install docker and create user adolph
+  #   sudo: yes
+  #   hosts: base
+  #   roles:
+  #     - { role: init }
 
-   - name: run images on master node
-     sudo: yes
-     hosts: master
-     roles:
-       - { role: master }
-
-  - name: run mesos mesos slave on slaves node
+  - name: master
+    sudo: yes
+    hosts: master
+    roles:
+      - { role: master }
+      
+  - name: install docker images and setup mesos marathon env
     sudo: yes
     hosts: slaves
     roles:

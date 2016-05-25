@@ -1,15 +1,2 @@
 ---
-  - name: mkdir deploy dir
-    file: path={{ deploydir }} state=directory mode=755
-
-  - name: clone docker file
-    git: repo={{ docker_compose_repo }} dest={{ deploydir }}
-
-  - name: change docker images env for master
-    script: config.sh {{ deploydir }} {{ master_ip }}
-
-  - name: run docker master images
-    shell: cd {{ deploydir }}/docker-compose/slave && docker-compose up -d
-
-  - name: run services in containers
-    script: run.sh
+- include: deploy.yml

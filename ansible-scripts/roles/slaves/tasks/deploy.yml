@@ -1,27 +1,27 @@
 ---
   - name: mkdir log dir for mesos_slave
-    file: path={{ slave_data }}/log state=directory mode=755
+    file: path={{ slave_data }}/log state=directory mode=755 owner=adolph group=adolph
 
   - name: mkdir work dir for mesos_slave
-    file: path={{ slave_data }}/work state=directory mode=755
+    file: path={{ slave_data }}/work state=directory mode=755 owner=adolph group=adolph
 
   - name: mkdir store/docker dir for mesos_slave
-    file: path={{ slave_data }}/store/docker state=directory mode=755
+    file: path={{ slave_data }}/store/docker state=directory mode=755 owner=adolph group=adolph
 
   - name: mkdir external_log dir for mesos_slave
-    file: path={{ slave_data }}/external_log state=directory mode=755
+    file: path={{ slave_data }}/external_log state=directory mode=755 owner=adolph group=adolph
 
   - name: mkdir sandbox dir for mesos_slave
-    file: path={{ slave_data }}/sandbox state=directory mode=755
+    file: path={{ slave_data }}/sandbox state=directory mode=755 owner=adolph group=adolph
 
   - name: mkdir fetch dir for mesos_slave
-    file: path={{ slave_data }}/fetch state=directory mode=755
+    file: path={{ slave_data }}/fetch state=directory mode=755 owner=adolph group=adolph
 
   - name: mkdir deploy dir
-    file: path={{ deploydir }} state=directory mode=755
+    file: path={{ deploydir }} state=directory mode=755 owner=adolph group=adolph
 
   - name: clone docker file
-    git: repo={{ docker_compose_repo }} dest={{ deploydir }} version=bigdata force=yes
+    git: repo={{ docker_compose_repo }} dest={{ deploydir }} version=gic force=yes
 
   - name: change docker images env for master
     script: config.sh {{ deploydir }} {{ master_ip }}
@@ -29,5 +29,5 @@
   - name: run docker master images
     shell: cd {{ deploydir }}/docker-compose/slave && docker-compose up -d
 
-  - name: run services in containers
-    script: run.sh
+  # - name: run services in containers
+  #   script: run.sh

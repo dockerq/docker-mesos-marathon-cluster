@@ -15,9 +15,9 @@
     #sudo: yes
     apt: name=ca-certificates state=present
 
-  - name: install docker 1.10.0
+  - name: install docker 1.10.2
     #sudo: yes
-    apt: name=docker-engine=1.10.1-0~trusty update_cache=yes
+    apt: name=docker-engine=1.10.2-0~trusty update_cache=yes
 
   - name: install python-setuptools
     #sudo: yes
@@ -37,3 +37,6 @@
   - name: install docker-compose
     #sudo: yes
     shell: pip install docker-compose
+
+  - name: create user adolph
+    user: name=adolph shell=/bin/bash groups=adolph

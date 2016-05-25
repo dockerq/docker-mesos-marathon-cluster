@@ -3,9 +3,8 @@
 #ansible_ssh_user: root
 #ansible_ssh_pass: vagrant
 
-deploydir: /home/vagrant/deploy
+deploydir: /home/adolph/deploy
 docker_compose_repo: https://github.com/DHOPL/docker-mesos-marathon-cluster.git
-master_ip: 192.168.10.130
-slave_nfsdir: /nfs/hadoop
+master_ip: 192.168.10.2
 master_data: /var/mesos
 slave_data: /var/mesos_slave

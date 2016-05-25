@@ -1,11 +1,10 @@
 [base]
-192.168.10.130
-192.168.10.132
-192.168.10.160
+your host ip
 
 [master]
-192.168.10.130
+your master node ip
 
 [slaves]
-192.168.10.132
-192.168.10.160
+slave node1 ip
+slave node2 ip
+...

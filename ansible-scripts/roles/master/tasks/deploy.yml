@@ -1,0 +1,24 @@
+---
+  - name: create log for mesos master
+    file: path={{ master_data }}/log state=directory mode=755 owner=adolph group=adolph
+
+  - name: create work for mesos master
+    file: path={{ master_data }}/work state=directory mode=755 owner=adolph group=adolph
+
+  - name: create external_log for mesos master
+    file: path={{ master_data }}/external_log state=directory mode=755 owner=adolph group=adolph
+
+  - name: mkdir deploy dir
+    file: path={{ deploydir }} state=directory mode=755 owner=adolph group=adolph
+
+  - name: clone docker file
+    git: repo={{ docker_compose_repo }} dest={{ deploydir }} version=gic force=yes
+
+  - name: change docker images env for master
+    script: config.sh {{ deploydir }}
+
+  - name: run docker master images
+    shell: cd {{ deploydir }}/docker-compose/master && docker-compose up -d
+
+  - name: run services in containers
+    script: run.sh
